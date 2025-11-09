@@ -1,0 +1,52 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+// {4,6,2,5,7,9,1,3};
+class Main {
+    static void swap(int[] a, int i, int j) {
+        int t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    public static int partition(int arr[], int low ,int high){
+       int pivot=arr[low];
+        int i=low;
+        
+        int j=high;
+        while(i<j){
+        while(arr[i]<=pivot && i<=high-1){
+             System.out.print( arr[i]+ " ");
+                i++;
+                System.out.print("i"+i+"   "+ arr[i]);
+               
+            }
+            System.out.println();
+        while(arr[j]>pivot && j>=low+1){
+                j--;
+                System.out.print("j"+j+"   "+ arr[j]);
+                
+            }
+            System.out.println();
+            if(i<j){
+             swap(arr,i,j);
+             
+            }
+        }
+       swap(arr,low,j);
+        System.out.print("par"+j);
+        System.out.println();
+        return j;
+    }
+    
+    public static void quickSort(int arr[],int low,int high){
+        if(low<high){
+           int  pIndex=partition(arr,low,high);
+            quickSort(arr,low,pIndex-1);
+            quickSort(arr,pIndex+1,high);
+        }
+    }
+    public static void main(String[] args) {
+       int arr[]={4,6,2,5,7,9,1,3};
+       quickSort(arr,0,arr.length-1);
+       for(int i =0;i<arr.length;i++){
+           System.out.println(arr[i]+" ");
+       }
+    }
+}
