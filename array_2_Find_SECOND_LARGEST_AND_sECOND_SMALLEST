@@ -1,0 +1,52 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+// find-the-largest-element-in-an-array
+
+// Second Smallest Algo:
+
+// If the current element is smaller than ‘small’, then we update second_small and small variables
+// Else if the current element is smaller than ‘second_small’ then we update the variable ‘second_small’
+// Once we traverse the entire array, we would find the second smallest element in the variable second_small.
+// Here’s a quick demonstration of the same.
+// Second Largest Algo:
+
+// If the current element is larger than ‘large’ then update second_large and large variables
+// Else if the current element is larger than ‘second_large’ then we update the variable second_large.
+// Once we traverse the entire array, we would find the second largest element in the variable second_large.
+class Main {
+    public static void main(String[] args) {
+        int arr[]={4, 2, 8, 19, 23, 87, 12, 9, 45, 23, 18};
+        int smallest=Integer.MAX_VALUE;
+        int sec_smallest=Integer.MAX_VALUE;
+        int largest=Integer.MIN_VALUE;
+        int sec_largest=Integer.MIN_VALUE;
+        
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]<smallest && arr[i]<sec_smallest )
+            {
+                
+                 sec_smallest=smallest;
+                 smallest=arr[i];
+            }
+            else if(arr[i]<sec_smallest && arr[i]>smallest){
+                sec_smallest=arr[i];
+            }
+            if(arr[i]>largest && arr[i]>sec_largest)
+            {
+               sec_largest= largest;
+                largest=arr[i];
+            }
+            if(arr[i]>sec_largest && arr[i]<largest)
+            {
+                 sec_largest=arr[i];
+            }
+            
+         
+            
+            
+        }
+           System.out.println("second largest"+sec_largest);
+            System.out.println("second smallest"+sec_smallest);
+        
+    }
+}
